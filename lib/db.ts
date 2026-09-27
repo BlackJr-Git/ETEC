@@ -1,9 +1,9 @@
-import { drizzle } from "drizzle-orm/d1";
-import { env } from "cloudflare:workers";
+import { drizzle } from "drizzle-orm/neon-http";
 import * as schema from "@/db/schema";
 
 export function getDatabase() {
-  const db = env.DB;
-  if (!db) throw new Error("La base de données D1 (DB) n’est pas disponible.");
-  return drizzle(db, { schema });
+  const connectionString = process.env.DATABASE_URL;
+  if (!connectionString)
+    throw new Error("La variable DATABASE_URL n’est pas configurée.");
+  return drizzle(connectionString, { schema });
 }

@@ -1,21 +1,17 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { drizzle } from "drizzle-orm/d1";
-import { env } from "cloudflare:workers";
+import { getDatabase } from "@/lib/db";
 import * as schema from "@/db/schema";
-
-function getDatabase() {
-  const db = env.DB;
-  if (!db) throw new Error("La base de données D1 (DB) n’est pas disponible.");
-  return drizzle(db, { schema });
-}
 
 export const auth = betterAuth({
   database: drizzleAdapter(getDatabase(), {
-    provider: "sqlite",
+    provider: "pg",
+    schema,
   }),
   secret:
-    env.BETTER_AUTH_SECRET ?? "etec-dev-secret-change-me-in-production-32-char",
+    process.env.BETTER_AUTH_SECRET ??
+    "etec-dev-secret-change-me-in-production-32-char",
+  baseURL: process.env.BETTER_AUTH_URL,
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: false,

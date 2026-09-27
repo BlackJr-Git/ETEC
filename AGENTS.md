@@ -7,7 +7,7 @@ Site for ETEC asbl, a necropolis / funeral services organization in Kinshasa and
 ## Stack
 
 - Next.js via Vinext (Vite-based React Server Components)
-- Cloudflare Workers + D1 (SQLite) runtime
+- Vercel runtime via Nitro + Neon Postgres
 - Tailwind CSS v4
 - shadcn/ui React components
 - Drizzle ORM + drizzle-kit
@@ -35,20 +35,20 @@ npx pnpm dev
 npx pnpm db:generate
 ```
 
-## D1 Migrations
+## Neon Postgres Migrations
 
-Migrations live in `drizzle/`. To apply locally (for testing):
+Postgres migrations live in `drizzle-postgres/`. Set `DATABASE_URL`, then generate and apply schema changes with Drizzle Kit:
 
 ```bash
-npx pnpm build
-mkdir -p dist/server/migrations
-cp drizzle/*.sql dist/server/migrations/
-npx pnpm exec wrangler d1 migrations apply DB --config dist/server/wrangler.json --local --persist-to .wrangler/state
+npx pnpm db:generate
+npx pnpm exec drizzle-kit migrate
 ```
+
+Vercel deployments require `DATABASE_URL`, `BETTER_AUTH_SECRET`, and `BETTER_AUTH_URL`.
 
 ## Admin Authentication
 
-Better Auth is configured in `lib/auth.ts` using the D1 Drizzle adapter. Admin routes are under `/admin` and protected by session in `app/admin/layout.tsx`. The first admin account can be created from `/login` by switching to "Créer un compte administrateur". In production, set `BETTER_AUTH_SECRET` in Cloudflare environment variables.
+Better Auth is configured in `lib/auth.ts` using the Postgres Drizzle adapter. Admin routes are under `/admin` and protected by session in `app/admin/layout.tsx`. The first admin account can be created from `/login` by switching to "Créer un compte administrateur". In production, set `BETTER_AUTH_SECRET` and `BETTER_AUTH_URL` in Vercel environment variables.
 
 ## Design Context
 

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { env } from "cloudflare:workers";
+import { demandes } from "@/db/schema";
+import { getDatabase } from "@/lib/db";
 const kinds = new Set([
   "achat",
   "funerailles",
@@ -35,25 +36,22 @@ export async function POST(request: Request) {
       );
     const id = crypto.randomUUID();
     const reference = `ETEC-${new Date().getUTCFullYear()}-${id.slice(0, 8).toUpperCase()}`;
-    if (!env.DB) throw new Error("D1 indisponible");
     const now = Date.now();
-    await env.DB.prepare(
-      "INSERT INTO demandes (id,type,nom,telephone,email,ville,site,message,created_at,updated_at,status) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
-    )
-      .bind(
-        reference,
+    await getDatabase()
+      .insert(demandes)
+      .values({
+        id: reference,
         type,
         nom,
         telephone,
-        email || null,
+        email: email || null,
         ville,
-        site || null,
+        site: site || null,
         message,
-        now,
-        now,
-        "nouveau",
-      )
-      .run();
+        createdAt: now,
+        updatedAt: now,
+        status: "nouveau",
+      });
     return NextResponse.json({ reference }, { status: 201 });
   } catch (error) {
     console.error("Request submission failed", error);

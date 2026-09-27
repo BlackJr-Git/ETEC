@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { env } from "cloudflare:workers";
+import { messages } from "@/db/schema";
+import { getDatabase } from "@/lib/db";
 
 function clean(value: unknown, max: number) {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
@@ -17,42 +18,39 @@ export async function POST(request: Request) {
     if (nom.length < 2 || sujet.length < 2 || contenu.length < 5) {
       return NextResponse.json(
         { error: "Veuillez vérifier les champs du formulaire." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json(
         { error: "L’adresse e-mail semble invalide." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    if (!env.DB) throw new Error("D1 indisponible");
-
     const id = crypto.randomUUID();
-    await env.DB.prepare(
-      "INSERT INTO messages (id, nom, telephone, email, sujet, contenu, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
-    )
-      .bind(
+    const now = Date.now();
+    await getDatabase()
+      .insert(messages)
+      .values({
         id,
         nom,
-        telephone || null,
-        email || null,
+        telephone: telephone || null,
+        email: email || null,
         sujet,
         contenu,
-        "nouveau",
-        Date.now(),
-        Date.now()
-      )
-      .run();
+        status: "nouveau",
+        createdAt: now,
+        updatedAt: now,
+      });
 
     return NextResponse.json({ id }, { status: 201 });
   } catch (error) {
     console.error("Message submission failed", error);
     return NextResponse.json(
       { error: "Service temporairement indisponible." },
-      { status: 503 }
+      { status: 503 },
     );
   }
 }
