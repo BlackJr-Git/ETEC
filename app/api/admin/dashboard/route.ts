@@ -67,22 +67,30 @@ export async function GET(request: Request) {
       .groupBy(reservations.statut),
     db
       .select({
-        day: sql<string>`date(${demandes.createdAt} / 1000, 'unixepoch')`,
+        day: sql<string>`to_char(to_timestamp(${demandes.createdAt} / 1000.0), 'YYYY-MM-DD')`,
         count: count(),
       })
       .from(demandes)
       .where(gte(demandes.createdAt, sevenDaysAgo))
-      .groupBy(sql`date(${demandes.createdAt} / 1000, 'unixepoch')`)
-      .orderBy(sql`date(${demandes.createdAt} / 1000, 'unixepoch')`),
+      .groupBy(
+        sql`to_char(to_timestamp(${demandes.createdAt} / 1000.0), 'YYYY-MM-DD')`,
+      )
+      .orderBy(
+        sql`to_char(to_timestamp(${demandes.createdAt} / 1000.0), 'YYYY-MM-DD')`,
+      ),
     db
       .select({
-        day: sql<string>`date(${messages.createdAt} / 1000, 'unixepoch')`,
+        day: sql<string>`to_char(to_timestamp(${messages.createdAt} / 1000.0), 'YYYY-MM-DD')`,
         count: count(),
       })
       .from(messages)
       .where(gte(messages.createdAt, sevenDaysAgo))
-      .groupBy(sql`date(${messages.createdAt} / 1000, 'unixepoch')`)
-      .orderBy(sql`date(${messages.createdAt} / 1000, 'unixepoch')`),
+      .groupBy(
+        sql`to_char(to_timestamp(${messages.createdAt} / 1000.0), 'YYYY-MM-DD')`,
+      )
+      .orderBy(
+        sql`to_char(to_timestamp(${messages.createdAt} / 1000.0), 'YYYY-MM-DD')`,
+      ),
     db
       .select()
       .from(reservations)

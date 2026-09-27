@@ -284,45 +284,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="locations wrap">
-          <div>
-            <p className="eyebrow dark">NOS IMPLANTATIONS</p>
-            <h2>
-              À Kinshasa
-              <br />
-              et à Lubumbashi.
-            </h2>
-            <p>
-              Plusieurs sites sont disponibles selon la ville. Indiquez le site
-              qui vous intéresse si vous le connaissez ; autrement, nous vous
-              aiderons à identifier le bon interlocuteur.
-            </p>
-          </div>
-          <div className="location-list">
-            <button onClick={() => choose("renseignement")}>
-              <span>
-                01 <strong>Kinshasa</strong>
-              </span>
-              <ArrowUpRight />
-            </button>
-            <button onClick={() => choose("renseignement")}>
-              <span>
-                02 <strong>Lubumbashi</strong>
-              </span>
-              <ArrowUpRight />
-            </button>
-            <div className="location-note">
-              <Globe2 size={25} />
-              <p>
-                Vous résidez hors de la RDC ? Nous pouvons commencer les
-                échanges à distance.
-              </p>
-              <button onClick={() => choose("diaspora")}>
-                Contacter l’équipe diaspora ↗
-              </button>
-            </div>
-          </div>
-        </section>
         <section className="contact-section" id="demande">
           <div className="wrap contact-layout">
             <div className="contact-copy">
@@ -469,6 +430,45 @@ export default function Home() {
                   </p>
                 </form>
               )}
+            </div>
+          </div>
+        </section>
+        <section className="locations wrap">
+          <div>
+            <p className="eyebrow dark">NOS IMPLANTATIONS</p>
+            <h2>
+              À Kinshasa
+              <br />
+              et à Lubumbashi.
+            </h2>
+            <p>
+              Plusieurs sites sont disponibles selon la ville. Indiquez le site
+              qui vous intéresse si vous le connaissez ; autrement, nous vous
+              aiderons à identifier le bon interlocuteur.
+            </p>
+          </div>
+          <div className="location-list">
+            <button onClick={() => choose("renseignement")}>
+              <span>
+                01 <strong>Kinshasa</strong>
+              </span>
+              <ArrowUpRight />
+            </button>
+            <button onClick={() => choose("renseignement")}>
+              <span>
+                02 <strong>Lubumbashi</strong>
+              </span>
+              <ArrowUpRight />
+            </button>
+            <div className="location-note">
+              <Globe2 size={25} />
+              <p>
+                Vous résidez hors de la RDC ? Nous pouvons commencer les
+                échanges à distance.
+              </p>
+              <button onClick={() => choose("diaspora")}>
+                Contacter l’équipe diaspora ↗
+              </button>
             </div>
           </div>
         </section>
