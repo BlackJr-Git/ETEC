@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1790363511161,
+      "tag": "0000_next_roxanne_simpson",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1790431310171,
+      "tag": "0001_young_warbound",
+      "breakpoints": true
+    }
+  ]
+}
