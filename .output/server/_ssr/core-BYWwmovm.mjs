@@ -1,0 +1,1 @@
+var e={};throw Error(`Could not resolve "@opentelemetry/api" imported by "@better-auth/core". Is it installed?`);export{e as default};

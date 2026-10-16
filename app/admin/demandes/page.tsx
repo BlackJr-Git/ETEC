@@ -243,11 +243,11 @@ export default function AdminDemandesPage() {
 
       <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end">
         <div className="flex-1">
-          <label className="mb-1.5 block text-xs font-medium text-(--muted-foreground)">
+          <label className="mb-1.5 block text-xs font-medium text-muted-foreground">
             Rechercher
           </label>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-(--muted-foreground)" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -256,9 +256,9 @@ export default function AdminDemandesPage() {
             />
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-2 md:w-[28rem]">
+        <div className="grid grid-cols-3 gap-2 md:w-md">
           <div>
-            <label className="mb-1.5 block text-xs font-medium text-(--muted-foreground)">
+            <label className="mb-1.5 block text-xs font-medium text-muted-foreground">
               Statut
             </label>
             <Select value={status} onValueChange={setStatus}>
@@ -276,7 +276,7 @@ export default function AdminDemandesPage() {
             </Select>
           </div>
           <div>
-            <label className="mb-1.5 block text-xs font-medium text-(--muted-foreground)">
+            <label className="mb-1.5 block text-xs font-medium text-muted-foreground">
               Type
             </label>
             <Select value={type} onValueChange={setType}>
@@ -294,7 +294,7 @@ export default function AdminDemandesPage() {
             </Select>
           </div>
           <div>
-            <label className="mb-1.5 block text-xs font-medium text-(--muted-foreground)">
+            <label className="mb-1.5 block text-xs font-medium text-muted-foreground">
               Ville
             </label>
             <Select value={ville} onValueChange={setVille}>
@@ -315,8 +315,8 @@ export default function AdminDemandesPage() {
       </div>
 
       {selected.length > 0 && (
-        <div className="mb-4 flex flex-wrap items-center gap-2 rounded-lg border border-[#e7e7dd] bg-white p-2">
-          <span className="px-2 text-sm text-(--muted-foreground)">
+        <div className="mb-4 flex flex-wrap items-center gap-2 rounded-lg border border-[#dddad4] bg-white p-2">
+          <span className="px-2 text-sm text-muted-foreground">
             {selected.length} sélectionné(s)
           </span>
           {statuses.map((s) => (
@@ -340,7 +340,7 @@ export default function AdminDemandesPage() {
           description="Les demandes envoyées depuis le site apparaîtront ici. Utilisez les filtres pour afficher les archives."
         />
       ) : (
-        <div className="overflow-hidden rounded-xl border border-[#e7e7dd] bg-white">
+        <div className="overflow-hidden rounded-xl border border-[#dddad4] bg-white">
           <Table>
             <TableHeader>
               <TableRow className="bg-(--cream)/50 hover:bg-(--cream)/50">
@@ -368,7 +368,7 @@ export default function AdminDemandesPage() {
                 <TableRow>
                   <TableCell
                     colSpan={10}
-                    className="py-10 text-center text-sm text-(--muted-foreground)"
+                    className="py-10 text-center text-sm text-muted-foreground"
                   >
                     Chargement…
                   </TableCell>
@@ -390,7 +390,7 @@ export default function AdminDemandesPage() {
                     <TableCell className="font-mono text-xs text-(--ink)">
                       {row.id}
                     </TableCell>
-                    <TableCell className="text-sm text-(--muted-foreground)">
+                    <TableCell className="text-sm text-muted-foreground">
                       {formatDate(row.createdAt)}
                     </TableCell>
                     <TableCell className="text-sm text-(--ink)">
@@ -403,7 +403,7 @@ export default function AdminDemandesPage() {
                       {row.email ? (
                         <a
                           href={`mailto:${row.email}`}
-                          className="inline-flex items-center gap-1 text-sm text-(--ink) hover:text-[#9c8a54]"
+                          className="inline-flex items-center gap-1 text-sm text-(--ink) hover:text-[#9b1b1b]"
                         >
                           <Mail size={12} />
                           {row.email}
@@ -411,7 +411,7 @@ export default function AdminDemandesPage() {
                       ) : (
                         <a
                           href={`tel:${row.telephone}`}
-                          className="inline-flex items-center gap-1 text-sm text-(--ink) hover:text-[#9c8a54]"
+                          className="inline-flex items-center gap-1 text-sm text-(--ink) hover:text-[#9b1b1b]"
                         >
                           <Phone size={12} />
                           {row.telephone}
@@ -420,19 +420,16 @@ export default function AdminDemandesPage() {
                     </TableCell>
                     <TableCell className="text-sm text-(--ink)">
                       <span className="inline-flex items-center gap-1">
-                        <MapPin
-                          size={12}
-                          className="text-(--muted-foreground)"
-                        />
+                        <MapPin size={12} className="text-muted-foreground" />
                         {row.ville}
                       </span>
                       {row.site && (
-                        <span className="block text-xs text-(--muted-foreground)">
+                        <span className="block text-xs text-muted-foreground">
                           {row.site}
                         </span>
                       )}
                     </TableCell>
-                    <TableCell className="text-sm text-(--muted-foreground)">
+                    <TableCell className="text-sm text-muted-foreground">
                       {formatDate(row.updatedAt)}
                     </TableCell>
                     <TableCell>
@@ -453,7 +450,7 @@ export default function AdminDemandesPage() {
                         onClick={() => deleteRow(row.id)}
                         aria-label="Supprimer"
                       >
-                        <Trash2 size={16} className="text-rose-600" />
+                        <Trash2 size={16} className="text-destructive" />
                       </Button>
                     </TableCell>
                   </TableRow>
@@ -480,41 +477,39 @@ export default function AdminDemandesPage() {
           {detail && (
             <div className="space-y-5 text-sm">
               <div className="grid grid-cols-[6rem_1fr] gap-x-3 gap-y-3">
-                <span className="text-(--muted-foreground)">Référence</span>
+                <span className="text-muted-foreground">Référence</span>
                 <span className="font-mono text-xs">{detail.id}</span>
-                <span className="text-(--muted-foreground)">Nom</span>
+                <span className="text-muted-foreground">Nom</span>
                 <span>{detail.nom}</span>
-                <span className="text-(--muted-foreground)">Téléphone</span>
+                <span className="text-muted-foreground">Téléphone</span>
                 <span>{detail.telephone}</span>
-                <span className="text-(--muted-foreground)">E-mail</span>
+                <span className="text-muted-foreground">E-mail</span>
                 <span>{detail.email ?? "—"}</span>
-                <span className="text-(--muted-foreground)">Ville</span>
+                <span className="text-muted-foreground">Ville</span>
                 <span>{detail.ville}</span>
-                <span className="text-(--muted-foreground)">Site</span>
+                <span className="text-muted-foreground">Site</span>
                 <span>{detail.site ?? "—"}</span>
-                <span className="text-(--muted-foreground)">Type</span>
+                <span className="text-muted-foreground">Type</span>
                 <span>{TYPE_LABELS[detail.type] ?? detail.type}</span>
-                <span className="text-(--muted-foreground)">Reçue le</span>
+                <span className="text-muted-foreground">Reçue le</span>
                 <span>{formatDateTime(detail.createdAt)}</span>
-                <span className="text-(--muted-foreground)">Mise à jour</span>
+                <span className="text-muted-foreground">Mise à jour</span>
                 <span>{formatDateTime(detail.updatedAt)}</span>
-                <span className="text-(--muted-foreground)">Statut</span>
+                <span className="text-muted-foreground">Statut</span>
                 <span>
                   <StatusBadge status={detail.status} />
                 </span>
               </div>
               <div>
-                <span className="text-(--muted-foreground)">Message</span>
-                <p className="mt-1.5 max-h-56 overflow-auto whitespace-pre-wrap rounded-lg border border-[#e7e7dd] bg-(--cream) p-3 text-(--ink)">
+                <span className="text-muted-foreground">Message</span>
+                <p className="mt-1.5 max-h-56 overflow-auto whitespace-pre-wrap rounded-lg border border-[#dddad4] bg-(--cream) p-3 text-(--ink)">
                   {detail.message}
                 </p>
               </div>
               {detail.notes && (
                 <div>
-                  <span className="text-(--muted-foreground)">
-                    Notes internes
-                  </span>
-                  <p className="mt-1.5 whitespace-pre-wrap rounded-lg border border-[#e7e7dd] bg-(--cream) p-3 text-(--ink)">
+                  <span className="text-muted-foreground">Notes internes</span>
+                  <p className="mt-1.5 whitespace-pre-wrap rounded-lg border border-[#dddad4] bg-(--cream) p-3 text-(--ink)">
                     {detail.notes}
                   </p>
                 </div>

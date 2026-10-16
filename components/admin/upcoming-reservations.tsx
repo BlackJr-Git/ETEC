@@ -49,7 +49,7 @@ function formatRelative(ts: number) {
 export function UpcomingReservations({ items }: UpcomingReservationsProps) {
   if (items.length === 0) {
     return (
-      <div className="rounded-xl border border-[#e7e7dd] bg-white p-5">
+      <div className="rounded-xl border border-[#dddad4] bg-white p-5">
         <h3 className="font-display text-lg font-normal tracking-tight text-(--ink)">
           Prochaines réservations
         </h3>
@@ -65,14 +65,14 @@ export function UpcomingReservations({ items }: UpcomingReservationsProps) {
   }
 
   return (
-    <div className="rounded-xl border border-[#e7e7dd] bg-white p-5">
+    <div className="rounded-xl border border-[#dddad4] bg-white p-5">
       <div className="mb-4 flex items-center justify-between">
         <h3 className="font-display text-lg font-normal tracking-tight text-(--ink)">
           Prochaines réservations
         </h3>
         <Link
           href="/admin/reservations"
-          className="text-xs font-medium text-(--ink) hover:text-[#9c8a54]"
+          className="text-xs font-medium text-(--ink) hover:text-[#9b1b1b]"
         >
           Voir tout
         </Link>
@@ -84,21 +84,21 @@ export function UpcomingReservations({ items }: UpcomingReservationsProps) {
           return (
             <li
               key={r.id}
-              className="rounded-lg border border-[#efece2] bg-(--cream) p-3 transition-colors hover:border-[#e7e7dd] hover:bg-white"
+              className="rounded-lg border border-[#f1efeb] bg-(--cream) p-3 transition-colors hover:border-[#dddad4] hover:bg-white"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <p className="truncate text-sm font-medium text-(--ink)">
                     {r.nom}
                   </p>
-                  <p className="mt-0.5 text-xs text-(--muted-foreground)">
+                  <p className="mt-0.5 text-xs text-muted-foreground">
                     {TYPE_LABELS[r.type] ?? r.type} · {r.ville}
                     {r.site ? ` · ${r.site}` : ""}
                   </p>
                 </div>
                 <StatusBadge status={r.statut} />
               </div>
-              <div className="mt-2 flex items-center gap-2 text-xs text-(--muted-foreground)">
+              <div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
                 <Clock size={12} />
                 <span>{formatDateTime(r.dateReservation)}</span>
                 {relative && (

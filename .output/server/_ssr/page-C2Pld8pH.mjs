@@ -1,0 +1,1 @@
+import{Qt as e}from"./rsc.mjs";var t=e(()=>{throw Error(`Unexpectedly client reference export 'default' is called on server`)},`dbb34749462d`,`default`);export{t as default};

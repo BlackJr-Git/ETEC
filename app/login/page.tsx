@@ -39,15 +39,17 @@ export default function LoginPage() {
 
   return (
     <div className="font-admin flex min-h-screen items-center justify-center bg-(--cream) p-4">
-      <div className="w-full max-w-sm rounded-2xl border border-[#e7e7dd] bg-white p-8 shadow-sm">
+      <div className="w-full max-w-sm rounded-2xl border border-[#dddad4] bg-white p-8 shadow-sm">
         <div className="mb-6">
-          <p className="text-xs font-semibold tracking-[0.14em] text-(--muted-foreground)">
-            ETEC
-          </p>
+          <img
+            src="/logo.png"
+            alt="Le Chemin du Paradis"
+            className="h-12 w-auto"
+          />
           <h1 className="mt-2 font-display text-3xl font-normal tracking-tight text-(--ink)">
             Espace admin
           </h1>
-          <p className="mt-1.5 text-sm text-(--muted-foreground)">
+          <p className="mt-1.5 text-sm text-muted-foreground">
             {mode === "signin"
               ? "Connectez-vous pour gérer les demandes."
               : "Créez un compte administrateur."}
@@ -74,7 +76,7 @@ export default function LoginPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@etec.example"
+              placeholder="admin@cdp.example"
               required
             />
           </div>
@@ -92,7 +94,7 @@ export default function LoginPage() {
           </div>
 
           {error && (
-            <p className="rounded-md bg-rose-50 p-2.5 text-sm text-rose-700">
+            <p className="rounded-md bg-destructive/10 p-2.5 text-sm text-destructive">
               {error}
             </p>
           )}
@@ -109,7 +111,7 @@ export default function LoginPage() {
         <button
           type="button"
           onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
-          className="mt-5 w-full text-center text-sm text-(--muted-foreground) hover:text-(--ink)"
+          className="mt-5 w-full text-center text-sm text-muted-foreground hover:text-(--ink)"
         >
           {mode === "signin"
             ? "Créer un compte administrateur"

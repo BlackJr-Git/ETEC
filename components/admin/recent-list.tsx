@@ -45,17 +45,17 @@ const TYPE_LABELS: Record<string, string> = {
 export function RecentList({ demandes, messages }: RecentListProps) {
   return (
     <div className="grid gap-8 lg:grid-cols-2">
-      <section className="rounded-xl border border-[#e7e7dd] bg-white p-5">
+      <section className="rounded-xl border border-[#dddad4] bg-white p-5">
         <div className="mb-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Inbox size={16} className="text-(--muted-foreground)" />
+            <Inbox size={16} className="text-muted-foreground" />
             <h3 className="font-display text-lg font-normal tracking-tight text-(--ink)">
               Dernières demandes
             </h3>
           </div>
           <Link
             href="/admin/demandes"
-            className="text-xs font-medium text-(--ink) hover:text-[#9c8a54]"
+            className="text-xs font-medium text-(--ink) hover:text-[#9b1b1b]"
           >
             Voir tout
           </Link>
@@ -68,7 +68,7 @@ export function RecentList({ demandes, messages }: RecentListProps) {
             description="Les demandes envoyées depuis le site apparaîtront ici."
           />
         ) : (
-          <ul className="divide-y divide-[#f0ede5]">
+          <ul className="divide-y divide-[#f1efeb]">
             {demandes.map((d) => (
               <li
                 key={d.id}
@@ -78,7 +78,7 @@ export function RecentList({ demandes, messages }: RecentListProps) {
                   <p className="truncate text-sm font-medium text-(--ink)">
                     {d.nom}
                   </p>
-                  <p className="text-xs text-(--muted-foreground)">
+                  <p className="text-xs text-muted-foreground">
                     {d.type ? `${TYPE_LABELS[d.type] ?? d.type} · ` : ""}
                     {d.ville ? `${d.ville} · ` : ""}
                     {formatDate(d.createdAt)}
@@ -91,12 +91,12 @@ export function RecentList({ demandes, messages }: RecentListProps) {
         )}
       </section>
 
-      <section className="rounded-xl border border-[#e7e7dd] bg-white p-5">
+      <section className="rounded-xl border border-[#dddad4] bg-white p-5">
         <div className="mb-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <MessageSquareText
               size={16}
-              className="text-(--muted-foreground)"
+              className="text-muted-foreground"
             />
             <h3 className="font-display text-lg font-normal tracking-tight text-(--ink)">
               Derniers messages
@@ -104,7 +104,7 @@ export function RecentList({ demandes, messages }: RecentListProps) {
           </div>
           <Link
             href="/admin/messages"
-            className="text-xs font-medium text-(--ink) hover:text-[#9c8a54]"
+            className="text-xs font-medium text-(--ink) hover:text-[#9b1b1b]"
           >
             Voir tout
           </Link>
@@ -117,7 +117,7 @@ export function RecentList({ demandes, messages }: RecentListProps) {
             description="Les messages envoyés via le formulaire de contact apparaîtront ici."
           />
         ) : (
-          <ul className="divide-y divide-[#f0ede5]">
+          <ul className="divide-y divide-[#f1efeb]">
             {messages.map((m) => (
               <li
                 key={m.id}
@@ -127,7 +127,7 @@ export function RecentList({ demandes, messages }: RecentListProps) {
                   <p className="truncate text-sm font-medium text-(--ink)">
                     {m.sujet ?? m.nom}
                   </p>
-                  <p className="text-xs text-(--muted-foreground)">
+                  <p className="text-xs text-muted-foreground">
                     {m.nom} · {formatDate(m.createdAt)}
                   </p>
                 </div>

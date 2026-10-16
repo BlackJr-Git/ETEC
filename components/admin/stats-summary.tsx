@@ -23,18 +23,18 @@ export function StatsSummary({ items }: StatsSummaryProps) {
         return (
           <div
             key={item.label}
-            className="rounded-xl border border-[#e7e7dd] bg-white p-4"
+            className="rounded-xl border border-[#dddad4] bg-white p-4"
           >
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="text-xs font-medium uppercase tracking-wider text-(--muted-foreground)">
+                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                   {item.label}
                 </p>
                 <p className="mt-1 font-display text-2xl font-normal tracking-tight text-(--ink)">
                   {item.value}
                 </p>
                 {item.subLabel && (
-                  <p className="mt-0.5 text-xs text-(--muted-foreground)">
+                  <p className="mt-0.5 text-xs text-muted-foreground">
                     {item.subLabel}
                   </p>
                 )}

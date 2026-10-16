@@ -32,13 +32,13 @@ export function TypeBreakdown({
   const sorted = [...items].sort((a, b) => b.value - a.value);
 
   return (
-    <div className="rounded-xl border border-[#e7e7dd] bg-white p-5">
+    <div className="rounded-xl border border-[#dddad4] bg-white p-5">
       <h3 className="font-display text-lg font-normal tracking-tight text-(--ink)">
         {title}
       </h3>
 
       {total === 0 ? (
-        <p className="mt-6 text-sm text-(--muted-foreground)">{empty}</p>
+        <p className="mt-6 text-sm text-muted-foreground">{empty}</p>
       ) : (
         <ul className="mt-5 space-y-4">
           {sorted.map((item) => {
@@ -49,7 +49,7 @@ export function TypeBreakdown({
                   <span className="font-medium text-(--ink)">
                     {TYPE_LABELS[item.label] ?? item.label}
                   </span>
-                  <span className="text-(--muted-foreground)">
+                  <span className="text-muted-foreground">
                     {item.value}
                   </span>
                 </div>
@@ -57,7 +57,7 @@ export function TypeBreakdown({
                   <div
                     className={cn(
                       "h-1.5 rounded-full transition-all",
-                      color === "ink" ? "bg-(--ink)" : "bg-[#bdac78]",
+                      color === "ink" ? "bg-(--ink)" : "bg-[#9b1b1b]",
                     )}
                     style={{ width: `${pct}%` }}
                   />

@@ -15,28 +15,28 @@ const config: Record<string, { surface: string; dot: string; label: string }> =
       label: "En attente",
     },
     en_cours: {
-      surface: "bg-sky-50 text-sky-900 ring-sky-200/60",
-      dot: "bg-sky-500",
+      surface: "bg-slate-100 text-slate-800 ring-slate-200/60",
+      dot: "bg-slate-500",
       label: "En cours",
     },
     lu: {
-      surface: "bg-sky-50 text-sky-900 ring-sky-200/60",
-      dot: "bg-sky-500",
+      surface: "bg-slate-100 text-slate-800 ring-slate-200/60",
+      dot: "bg-slate-500",
       label: "Lu",
     },
     traite: {
-      surface: "bg-emerald-50 text-emerald-900 ring-emerald-200/60",
-      dot: "bg-emerald-500",
+      surface: "bg-[#f1efeb] text-[#1c1c1c] ring-[#dddad4]/60",
+      dot: "bg-[#1c1c1c]",
       label: "Traité",
     },
     repondu: {
-      surface: "bg-emerald-50 text-emerald-900 ring-emerald-200/60",
-      dot: "bg-emerald-500",
+      surface: "bg-[#f1efeb] text-[#1c1c1c] ring-[#dddad4]/60",
+      dot: "bg-[#1c1c1c]",
       label: "Répondu",
     },
     confirmee: {
-      surface: "bg-emerald-50 text-emerald-900 ring-emerald-200/60",
-      dot: "bg-emerald-500",
+      surface: "bg-[#f1efeb] text-[#1c1c1c] ring-[#dddad4]/60",
+      dot: "bg-[#1c1c1c]",
       label: "Confirmée",
     },
     archive: {

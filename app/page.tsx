@@ -149,13 +149,13 @@ export default function Home() {
         <a
           className="brand"
           href="#accueil"
-          aria-label="Entre Terre et Ciel, accueil"
+          aria-label="Le Chemin du Paradis, accueil"
         >
-          <span className="brand-icon">✧</span>
-          <span>
-            <strong>ENTRE TERRE ET CIEL</strong>
-            <small>NÉCROPOLE · ETEC</small>
-          </span>
+          <img
+            src="/logo.png"
+            alt="Le Chemin du Paradis"
+            className="brand-logo"
+          />
         </a>
         <nav
           className={menu ? "nav open" : "nav"}
@@ -195,7 +195,7 @@ export default function Home() {
               <em>Un accompagnement humain.</em>
             </h1>
             <p className="hero-lead">
-              Entre Terre et Ciel accompagne les familles dans leurs démarches,
+              Le Chemin du Paradis accompagne les familles dans leurs démarches,
               sur place et depuis l’étranger, avec clarté et respect.
             </p>
             <div className="hero-actions">
@@ -210,7 +210,7 @@ export default function Home() {
           <div className="hero-art" aria-hidden="true">
             <div className="arch">
               <div className="tree">✧</div>
-              <span>Entre Terre et Ciel</span>
+              <span>Le Chemin du Paradis</span>
             </div>
             <p>
               Des lieux pensés pour le recueillement,
@@ -294,7 +294,7 @@ export default function Home() {
                 <em>votre besoin.</em>
               </h2>
               <p>
-                Votre message est transmis à l’équipe Entre Terre et Ciel. Un
+                Votre message est transmis à l’équipe Le Chemin du Paradis. Un
                 membre de l’équipe pourra reprendre contact avec vous à l’aide
                 des coordonnées indiquées.
               </p>
@@ -500,7 +500,11 @@ export default function Home() {
       <footer>
         <div className="wrap footer-grid">
           <div>
-            <strong>ENTRE TERRE ET CIEL</strong>
+            <img
+              src="/logo.png"
+              alt="Le Chemin du Paradis"
+              className="footer-logo"
+            />
             <p>Nécropole · Kinshasa & Lubumbashi</p>
           </div>
           <p>Un espace de mémoire, une présence pour les familles.</p>
@@ -509,7 +513,7 @@ export default function Home() {
           </button>
         </div>
         <div className="wrap footer-bottom">
-          <span>© {new Date().getFullYear()} ETEC asbl</span>
+          <span>© {new Date().getFullYear()} Le Chemin du Paradis asbl</span>
           <span>
             Informations et conditions à confirmer auprès de l’équipe.
           </span>

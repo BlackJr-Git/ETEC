@@ -35,7 +35,7 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     const id = crypto.randomUUID();
-    const reference = `ETEC-${new Date().getUTCFullYear()}-${id.slice(0, 8).toUpperCase()}`;
+    const reference = `CDP-${new Date().getUTCFullYear()}-${id.slice(0, 8).toUpperCase()}`;
     const now = Date.now();
     await getDatabase()
       .insert(demandes)

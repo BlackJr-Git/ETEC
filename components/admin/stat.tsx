@@ -14,7 +14,7 @@ export function Stat({ value, label, hint }: StatProps) {
       </span>
       <span className="mt-1 text-sm font-medium text-(--ink)">{label}</span>
       {hint && (
-        <span className="text-xs text-(--muted-foreground)">{hint}</span>
+        <span className="text-xs text-muted-foreground">{hint}</span>
       )}
     </div>
   );

@@ -147,7 +147,7 @@ export default function AdminDashboardPage() {
       </PageHeader>
 
       {error && (
-        <p className="mb-6 rounded-md bg-rose-50 p-3 text-sm text-rose-700">
+        <p className="mb-6 rounded-md bg-destructive/10 p-3 text-sm text-destructive">
           {error}
         </p>
       )}
@@ -202,13 +202,13 @@ export default function AdminDashboardPage() {
         />
       </div>
 
-      <div className="rounded-xl border border-[#e7e7dd] bg-white p-5">
+      <div className="rounded-xl border border-[#dddad4] bg-white p-5">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h3 className="font-display text-lg font-normal tracking-tight text-(--ink)">
               Accès rapides
             </h3>
-            <p className="text-xs text-(--muted-foreground)">
+            <p className="text-xs text-muted-foreground">
               Naviguez vers les listes principales.
             </p>
           </div>

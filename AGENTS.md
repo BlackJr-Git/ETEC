@@ -1,8 +1,8 @@
-# Agent Notes — Entre Terre et Ciel
+# Agent Notes — Le Chemin du Paradis
 
 ## Project Context
 
-Site for ETEC asbl, a necropolis / funeral services organization in Kinshasa and Lubumbashi, Democratic Republic of Congo. The public site collects requests (demandes), contact messages, and reservations. The admin area manages these records.
+Site for Le Chemin du Paradis asbl, a necropolis / funeral services organization in Kinshasa and Lubumbashi, Democratic Republic of Congo. The public site collects requests (demandes), contact messages, and reservations. The admin area manages these records.
 
 ## Stack
 

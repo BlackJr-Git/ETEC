@@ -1,0 +1,1 @@
+function e(e){return({dispatch:t,getState:n})=>r=>i=>typeof i==`function`?i(t,n,e):r(i)}var t=e(),n=e;export{t as thunk,n as withExtraArgument};

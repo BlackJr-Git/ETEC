@@ -12,8 +12,8 @@ interface PaginationProps {
 export function Pagination({ page, pages, total, onChange }: PaginationProps) {
   if (pages <= 1) return null;
   return (
-    <div className="flex items-center justify-between border-t border-[#e7e7dd] bg-(--cream)/30 px-4 py-3">
-      <p className="text-sm text-(--muted-foreground)">
+    <div className="flex items-center justify-between border-t border-[#dddad4] bg-(--cream)/30 px-4 py-3">
+      <p className="text-sm text-muted-foreground">
         {total} résultat{total > 1 ? "s" : ""} · page {page} / {pages}
       </p>
       <div className="flex gap-2">

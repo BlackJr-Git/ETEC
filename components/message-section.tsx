@@ -32,19 +32,19 @@ export function MessageSection() {
 
   return (
     <section className="wrap py-16 lg:py-24" id="message">
-      <div className="mx-auto max-w-2xl rounded-xl border border-[#e7e7dd] bg-white p-6 md:p-10">
+      <div className="mx-auto max-w-2xl rounded-xl border border-[#dddad4] bg-white p-6 md:p-10">
         <p className="eyebrow dark mb-4">NOUS ÉCRIRE</p>
         <h2 className="mb-2 text-2xl font-normal tracking-tight text-(--ink)">
           Laisser un message
         </h2>
-        <p className="mb-6 text-sm text-(--muted-foreground)">
+        <p className="mb-6 text-sm text-muted-foreground">
           Pour une question simple ou un suivi, envoyez-nous un message. Notre
           équipe vous répondra.
         </p>
 
         {status === "success" ? (
           <div
-            className="rounded-md bg-emerald-50 p-4 text-emerald-800"
+            className="rounded-md bg-[#f1efeb] p-4 text-[#1c1c1c]"
             role="status"
           >
             <p className="font-medium">Votre message a bien été envoyé.</p>
@@ -69,7 +69,7 @@ export function MessageSection() {
                   required
                   maxLength={120}
                   placeholder="Votre nom"
-                  className="w-full rounded-md border border-[#d9d6ce] bg-(--cream) px-3 py-2 text-sm outline-none focus:border-(--ink)"
+                  className="w-full rounded-md border border-[#dddad4] bg-(--cream) px-3 py-2 text-sm outline-none focus:border-(--ink)"
                 />
               </div>
               <div className="space-y-1">
@@ -81,7 +81,7 @@ export function MessageSection() {
                   type="tel"
                   maxLength={40}
                   placeholder="+243 …"
-                  className="w-full rounded-md border border-[#d9d6ce] bg-(--cream) px-3 py-2 text-sm outline-none focus:border-(--ink)"
+                  className="w-full rounded-md border border-[#dddad4] bg-(--cream) px-3 py-2 text-sm outline-none focus:border-(--ink)"
                 />
               </div>
             </div>
@@ -94,7 +94,7 @@ export function MessageSection() {
                 type="email"
                 maxLength={180}
                 placeholder="vous@exemple.com"
-                className="w-full rounded-md border border-[#d9d6ce] bg-(--cream) px-3 py-2 text-sm outline-none focus:border-(--ink)"
+                className="w-full rounded-md border border-[#dddad4] bg-(--cream) px-3 py-2 text-sm outline-none focus:border-(--ink)"
               />
             </div>
             <div className="space-y-1">
@@ -104,7 +104,7 @@ export function MessageSection() {
                 required
                 maxLength={200}
                 placeholder="Objet de votre message"
-                className="w-full rounded-md border border-[#d9d6ce] bg-(--cream) px-3 py-2 text-sm outline-none focus:border-(--ink)"
+                className="w-full rounded-md border border-[#dddad4] bg-(--cream) px-3 py-2 text-sm outline-none focus:border-(--ink)"
               />
             </div>
             <div className="space-y-1">
@@ -117,11 +117,11 @@ export function MessageSection() {
                 maxLength={3000}
                 rows={4}
                 placeholder="Votre message…"
-                className="w-full rounded-md border border-[#d9d6ce] bg-(--cream) px-3 py-2 text-sm outline-none focus:border-(--ink)"
+                className="w-full rounded-md border border-[#dddad4] bg-(--cream) px-3 py-2 text-sm outline-none focus:border-(--ink)"
               />
             </div>
             {status === "error" && (
-              <p className="text-sm text-rose-700">
+              <p className="text-sm text-destructive">
                 Une erreur est survenue. Veuillez vérifier les champs et
                 réessayer.
               </p>

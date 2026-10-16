@@ -231,11 +231,11 @@ export default function AdminMessagesPage() {
 
       <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end">
         <div className="flex-1">
-          <label className="mb-1.5 block text-xs font-medium text-(--muted-foreground)">
+          <label className="mb-1.5 block text-xs font-medium text-muted-foreground">
             Rechercher
           </label>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-(--muted-foreground)" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -245,7 +245,7 @@ export default function AdminMessagesPage() {
           </div>
         </div>
         <div className="md:w-56">
-          <label className="mb-1.5 block text-xs font-medium text-(--muted-foreground)">
+          <label className="mb-1.5 block text-xs font-medium text-muted-foreground">
             Statut
           </label>
           <Select value={status} onValueChange={setStatus}>
@@ -265,8 +265,8 @@ export default function AdminMessagesPage() {
       </div>
 
       {selected.length > 0 && (
-        <div className="mb-4 flex flex-wrap items-center gap-2 rounded-lg border border-[#e7e7dd] bg-white p-2">
-          <span className="px-2 text-sm text-(--muted-foreground)">
+        <div className="mb-4 flex flex-wrap items-center gap-2 rounded-lg border border-[#dddad4] bg-white p-2">
+          <span className="px-2 text-sm text-muted-foreground">
             {selected.length} sélectionné(s)
           </span>
           {statuses.map((s) => (
@@ -290,7 +290,7 @@ export default function AdminMessagesPage() {
           description="Les messages envoyés depuis le site apparaîtront ici."
         />
       ) : (
-        <div className="overflow-hidden rounded-xl border border-[#e7e7dd] bg-white">
+        <div className="overflow-hidden rounded-xl border border-[#dddad4] bg-white">
           <Table>
             <TableHeader>
               <TableRow className="bg-(--cream)/50 hover:bg-(--cream)/50">
@@ -316,7 +316,7 @@ export default function AdminMessagesPage() {
                 <TableRow>
                   <TableCell
                     colSpan={8}
-                    className="py-10 text-center text-sm text-(--muted-foreground)"
+                    className="py-10 text-center text-sm text-muted-foreground"
                   >
                     Chargement…
                   </TableCell>
@@ -335,7 +335,7 @@ export default function AdminMessagesPage() {
                         className="accent-(--ink)"
                       />
                     </TableCell>
-                    <TableCell className="text-sm text-(--muted-foreground)">
+                    <TableCell className="text-sm text-muted-foreground">
                       {formatDate(row.createdAt)}
                     </TableCell>
                     <TableCell className="font-medium text-(--ink)">
@@ -345,7 +345,7 @@ export default function AdminMessagesPage() {
                       {row.email ? (
                         <a
                           href={`mailto:${row.email}`}
-                          className="inline-flex items-center gap-1 text-sm text-(--ink) hover:text-[#9c8a54]"
+                          className="inline-flex items-center gap-1 text-sm text-(--ink) hover:text-[#9b1b1b]"
                         >
                           <Mail size={12} />
                           {row.email}
@@ -353,21 +353,19 @@ export default function AdminMessagesPage() {
                       ) : row.telephone ? (
                         <a
                           href={`tel:${row.telephone}`}
-                          className="inline-flex items-center gap-1 text-sm text-(--ink) hover:text-[#9c8a54]"
+                          className="inline-flex items-center gap-1 text-sm text-(--ink) hover:text-[#9b1b1b]"
                         >
                           <Phone size={12} />
                           {row.telephone}
                         </a>
                       ) : (
-                        <span className="text-sm text-(--muted-foreground)">
-                          —
-                        </span>
+                        <span className="text-sm text-muted-foreground">—</span>
                       )}
                     </TableCell>
                     <TableCell className="max-w-xs truncate text-sm text-(--ink)">
                       {row.sujet}
                     </TableCell>
-                    <TableCell className="text-sm text-(--muted-foreground)">
+                    <TableCell className="text-sm text-muted-foreground">
                       {formatDate(row.updatedAt)}
                     </TableCell>
                     <TableCell>
@@ -388,7 +386,7 @@ export default function AdminMessagesPage() {
                         onClick={() => deleteRow(row.id)}
                         aria-label="Supprimer"
                       >
-                        <Trash2 size={16} className="text-rose-600" />
+                        <Trash2 size={16} className="text-destructive" />
                       </Button>
                     </TableCell>
                   </TableRow>
@@ -415,24 +413,24 @@ export default function AdminMessagesPage() {
           {detail && (
             <div className="space-y-5 text-sm">
               <div className="grid grid-cols-[5rem_1fr] gap-x-3 gap-y-3">
-                <span className="text-(--muted-foreground)">De</span>
+                <span className="text-muted-foreground">De</span>
                 <span className="font-medium">{detail.nom}</span>
-                <span className="text-(--muted-foreground)">E-mail</span>
+                <span className="text-muted-foreground">E-mail</span>
                 <span>{detail.email ?? "—"}</span>
-                <span className="text-(--muted-foreground)">Téléphone</span>
+                <span className="text-muted-foreground">Téléphone</span>
                 <span>{detail.telephone ?? "—"}</span>
-                <span className="text-(--muted-foreground)">Reçu le</span>
+                <span className="text-muted-foreground">Reçu le</span>
                 <span>{formatDateTime(detail.createdAt)}</span>
-                <span className="text-(--muted-foreground)">Mis à jour</span>
+                <span className="text-muted-foreground">Mis à jour</span>
                 <span>{formatDateTime(detail.updatedAt)}</span>
-                <span className="text-(--muted-foreground)">Statut</span>
+                <span className="text-muted-foreground">Statut</span>
                 <span>
                   <StatusBadge status={detail.status} />
                 </span>
               </div>
               <div>
-                <span className="text-(--muted-foreground)">Message</span>
-                <p className="mt-1.5 max-h-80 overflow-auto whitespace-pre-wrap rounded-lg border border-[#e7e7dd] bg-(--cream) p-3 text-(--ink)">
+                <span className="text-muted-foreground">Message</span>
+                <p className="mt-1.5 max-h-80 overflow-auto whitespace-pre-wrap rounded-lg border border-[#dddad4] bg-(--cream) p-3 text-(--ink)">
                   {detail.contenu}
                 </p>
               </div>

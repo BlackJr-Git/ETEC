@@ -35,19 +35,19 @@ export function AdminNav({ close }: { close?: () => void }) {
             className={cn(
               "group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors",
               active
-                ? "bg-[#f3f0e6] font-medium text-(--ink)"
+                ? "bg-[#f1efeb] font-medium text-(--ink)"
                 : "text-foreground hover:bg-muted",
             )}
           >
             {active && (
-              <span className="absolute left-0 top-1/2 h-5 w-0.5 -translate-y-1/2 rounded-r bg-[#bdac78]" />
+              <span className="absolute left-0 top-1/2 h-5 w-0.5 -translate-y-1/2 rounded-r bg-[#9b1b1b]" />
             )}
             <Icon
               size={17}
               strokeWidth={active ? 2 : 1.8}
               className={cn(
                 "transition-colors",
-                active ? "text-[#9c8a54]" : "text-(--muted-foreground)",
+                active ? "text-[#9b1b1b]" : "text-muted-foreground",
               )}
             />
             <span>{item.label}</span>
